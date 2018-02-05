@@ -2,10 +2,22 @@ require('dotenv').config({silent: true})
 const jwt = require('jsonwebtoken')
 const utils = require('../utils')
 const axios = require('axios')
+const moment = require('moment')
+const Koa = require('koa')
+const app = new Koa()
+var server = require('http').createServer(app.callback())
+var io = require('socket.io')(server)
+server.listen('8899')
 const JWT_SECRET = process.env.JWT_SECRET
 let rateLimit = 5000
 let createdAt = new Date()
 console.log(rateLimit, createdAt)
+
+io.on('connection', function (socket) {
+  socket.emit('limit', {
+    rateLimit
+  })
+})
 
 /**
  *

@@ -25,6 +25,7 @@
     "koa-static": "^4.0.2",
     "koa2-history-api-fallback": "^0.0.5",
     "melody.css": "^1.0.2",
+    "moment": "^2.20.1",
     "pug": "^2.0.0-rc.4",
     "pug-loader": "^2.3.0",
     "socket.io": "^2.0.4",

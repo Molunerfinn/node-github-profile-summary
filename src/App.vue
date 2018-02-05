@@ -6,17 +6,17 @@
 
 <script>
 import io from 'socket.io-client'
-const socket = io('http://localhost')
+const socket = io('http://localhost:8899')
 export default {
   name: 'App',
   data () {
     return {
-      limit: 5000
+      limit: 0
     }
   },
   created () {
     socket.on('limit', (data) => {
-      console.log(data)
+      this.limit = data.rateLimit
     })
   }
 }
