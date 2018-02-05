@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import axios from 'axios'
 import Router from 'vue-router'
-import Welcome from '@/views/Welcome'
-import Profile from '@/views/profile'
+import jwt from 'jsonwebtoken'
+const Welcome = () => import('../views/Welcome.vue')
+const Profile = () => import('../views/Profile.vue')
 
 Vue.use(Router)
 
@@ -19,7 +20,8 @@ export default new Router({
       name: 'Profile',
       component: Profile,
       beforeEnter: (to, from, next) => {
-        if (!localStorage.getItem('github-profile-token')) {
+        const token = localStorage.getItem('github-profile-token')
+        if (!token || jwt.decode(token).username !== to.params.username) {
           axios.get(`/api/check-status/${to.params.username}`)
             .then(res => {
               if (res.data.success) {
@@ -36,6 +38,12 @@ export default new Router({
             })
             .catch(err => {
               console.log(err)
+              next({
+                name: 'Welcome',
+                query: {
+                  redirect: 'invalid'
+                }
+              })
             })
         } else {
           next()

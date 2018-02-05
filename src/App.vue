@@ -5,8 +5,20 @@
 </template>
 
 <script>
+import io from 'socket.io-client'
+const socket = io('http://localhost')
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      limit: 5000
+    }
+  },
+  created () {
+    socket.on('limit', (data) => {
+      console.log(data)
+    })
+  }
 }
 </script>
 
