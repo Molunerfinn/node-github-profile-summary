@@ -10,12 +10,15 @@ var io = require('socket.io')(server)
 server.listen('8899')
 const JWT_SECRET = process.env.JWT_SECRET
 let rateLimit = 5000
-let createdAt = new Date()
-console.log(rateLimit, createdAt)
+let resetAt = new Date()
 
-io.on('connection', function (socket) {
-  socket.emit('limit', {
-    rateLimit
+io.on('connection', (socket) => {
+  socket.on('getLimit', () => {
+    const obj = {
+      remaining: rateLimit,
+      resetAt
+    }
+    rateLimitBroadcast(obj)
   })
 })
 
@@ -83,18 +86,28 @@ const getUsercommits = (username) => {
  */
 const getUserRepos = async (username, createdAt) => {
   const res = await utils.gqlSender(username, 'userRepos', {createdAt})
-  rateLimit = res.rateLimit.remaining
+  rateLimitBroadcast(res.rateLimit)
   return res.user.repositories
 }
 
-const getRateLimit = async () => {
-  const res = await utils.gqlSender('', 'rateLimit')
-  rateLimit = res.rateLimit.remaining
+const getRateLimit = async (ctx) => {
+  ctx.body = {
+    success: true
+  }
+}
+
+const rateLimitBroadcast = (rateLimitObj) => {
+  rateLimit = rateLimitObj.remaining
+  resetAt = rateLimitObj.resetAt
+  return io.emit('limit', {
+    rateLimit: rateLimitObj.remaining,
+    resetAt: rateLimitObj.resetAt
+  })
 }
 
 // For Promise.all()
 const getLists = [
-  'userRepo',
+  'userRepos',
   'userCommits'
 ]
 
