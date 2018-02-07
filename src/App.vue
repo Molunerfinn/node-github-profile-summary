@@ -50,7 +50,6 @@ export default {
         scale: 2
       })
         .then(canvas => {
-          document.body.appendChild(canvas)
           const a = document.createElement('a')
           a.href = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream')
           a.download = `${this.$route.params.username}-Profile.jpg`
