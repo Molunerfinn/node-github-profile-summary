@@ -1,7 +1,7 @@
 <template lang="pug">
   .welcome
     img(src="../assets/logo.png")
-    div Input your github username
+    .welcome-title Input your github username
     input(type="text" placeholder="ex. Molunerfinn" v-model="username" @keyup.enter="searchUser")
 </template>
 
@@ -33,19 +33,27 @@ export default {
 }
 </script>
 
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="stylus">
+.welcome
+  margin-top 20px
+  text-align center
+  &-title
+    margin 12px 0
+    font-size 20px
+  input
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 1;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 250px;
 </style>

@@ -54,7 +54,7 @@ export default {
 .loading-mask
   position absolute
   z-index 10000
-  background-color rgba(255,235,215, .8)
+  background-color rgba(255,255,255,0.9)
   margin 0
   top 0
   right 0
