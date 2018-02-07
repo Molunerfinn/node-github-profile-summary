@@ -1,7 +1,18 @@
 <template lang="pug">
   .profile
-    .row
-      .col-lg -
+    .container
+      .row.user-info(v-if="userInfo.name !== undefined")
+        .col-sm-4.col-sm-offset-0.col-xs-6.col-xs-offset-3
+          .col-xs-12
+            img.user-avatar(:src="userInfo.avatarUrl", alt="")
+          .col-xs-12
+            | {{ userInfo.username }} ({{ userInfo.name }})
+          .col-xs-12
+            | {{ userInfo.email }}
+          .col-xs-12
+            | Joined at {{ userInfo.createdAt.slice(0, 10) }}
+          .col-xs-12
+            | {{ userInfo.bio }}
 </template>
 
 <script>
@@ -45,3 +56,8 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+  .profile
+    .user-avatar
+      width 100%
+</style>
