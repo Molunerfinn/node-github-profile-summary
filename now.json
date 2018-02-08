@@ -2,5 +2,6 @@
   "env": {
     "GH_TOKEN": "@gh-summary-token",
     "JWT_SECRET": "@jwt-secret"
-  }
+  },
+  "alias": "gh-profile-summary"
 }
