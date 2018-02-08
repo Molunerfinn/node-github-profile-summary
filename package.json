@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "start": "node app.js",
-    "deploy": "now && now alias && now remove node-github-profile-summary --safe"
+    "deploy": "now --public && now alias && now remove node-github-profile-summary --safe -f"
   },
   "dependencies": {
     "@octokit/rest": "^14.0.5",

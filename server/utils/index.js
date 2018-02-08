@@ -106,12 +106,14 @@ const handleUserCommits = (commits) => {
     month: '',
     count: 0
   }
+  let lastMonth = ''
   for (let i = 0; i < parseSvg.length; i++) {
     const dataCount = +$(parseSvg[i]).attr('data-count')
     const dataDate = $(parseSvg[i]).attr('data-date') // ex. 2017-01-23
     const dataYear = dataDate.slice(0, 4) // ex. 2017
     const dataMonth = dataDate.slice(5, 7) // ex. 01
     if (obj.month !== '' && obj.month !== dataMonth) {
+      lastMonth = obj.month
       contribution.push(Object.assign({}, obj))
       obj.year = dataYear
       obj.month = dataMonth
@@ -122,6 +124,10 @@ const handleUserCommits = (commits) => {
       obj.month = dataMonth
     }
     total += dataCount
+  }
+  console.log(obj.month, lastMonth)
+  if (obj.month !== lastMonth) {
+    contribution.push(Object.assign({}, obj))
   }
   return {
     contribution,
