@@ -2,24 +2,24 @@ require('dotenv').config({silent: true})
 const jwt = require('jsonwebtoken')
 const utils = require('../utils')
 const axios = require('axios')
-const Koa = require('koa')
-const app = new Koa()
-var server = require('http').createServer(app.callback())
-var io = require('socket.io')(server)
-server.listen('8899')
+// const Koa = require('koa')
+// const app = new Koa()
+// var server = require('http').createServer(app.callback())
+// var io = require('socket.io')(server)
+// server.listen('8899')
 const JWT_SECRET = process.env.JWT_SECRET
 let rateLimit = 5000
 let resetAt = new Date()
 
-io.on('connection', (socket) => {
-  socket.on('getLimit', () => {
-    const obj = {
-      remaining: rateLimit,
-      resetAt
-    }
-    rateLimitBroadcast(obj)
-  })
-})
+// io.on('connection', (socket) => {
+//   socket.on('getLimit', () => {
+//     const obj = {
+//       remaining: rateLimit,
+//       resetAt
+//     }
+//     rateLimitBroadcast(obj)
+//   })
+// })
 
 /**
  *
@@ -94,19 +94,16 @@ const getUserRepos = async (username, createdAt) => {
   return res.user.repositories
 }
 
-const getRateLimit = async (ctx) => {
-  ctx.body = {
-    success: true
+const getRateLimit = (ctx) => {
+  return {
+    rateLimit,
+    resetAt
   }
 }
 
 const rateLimitBroadcast = (rateLimitObj) => {
   rateLimit = rateLimitObj.remaining
   resetAt = rateLimitObj.resetAt
-  return io.emit('limit', {
-    rateLimit,
-    resetAt
-  })
 }
 
 // For Promise.all()

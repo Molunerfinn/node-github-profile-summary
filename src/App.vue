@@ -35,12 +35,14 @@ export default {
   created () {
     const host = window.location.hostname
     const protocol = window.location.protocol
-    const socket = io(`${protocol}//${host}:8899`)
+    const port = process.env.KOA_PORT || 443
+    const socket = io(`${protocol}//${host}:${port}`)
     socket.on('limit', (data) => {
       this.limit = data.rateLimit
       this.resetAt = data.resetAt
     })
     socket.emit('getLimit')
+    socket.emit('join')
   },
   methods: {
     forceUpdate () {

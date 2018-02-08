@@ -1,6 +1,7 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
+require('dotenv').config({silent: true})
 
 const path = require('path')
 
@@ -12,7 +13,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: 'http://localhost:8888',
+        target: `http://localhost:${process.env.KOA_PORT || 443}`,
         changeOrigin: true
       }
     },
