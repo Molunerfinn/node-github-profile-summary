@@ -303,7 +303,8 @@ export default {
 </script>
 <style lang="stylus">
   .profile
-    padding-top 20px
+    margin-top 20px
+    padding-top 60px
     padding-bottom 60px
     .user
       &-info

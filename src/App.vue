@@ -10,11 +10,11 @@
       <div class="panel-button" v-if="$route.name === 'Profile'" @click="forceUpdate">Force Update</div>
       <div class="panel-button" v-if="$route.name === 'Profile'" @click="saveImage">Save As Img</div>
     </div>
-    <div class="social-share text-align" data-sites="wechat,weibo,qzone,facebook,twitter,google">
-    </div>
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
+    <div class="social-share text-align" data-sites="wechat,weibo,qzone,facebook,twitter,google" :data-image="dataImage">
+    </div>
     <div class="footer">
       Node GitHub Profile Summary is built with <a href="https://github.com/vuejs/vue" target="_blank">Vue</a> \ <a href="https://github.com/koajs/koa" target="_blank">Koa</a> and <a href="https://github.com/chartjs/Chart.js" target="_blank">Chart.js</a>. Source is on <a href="https://github.com/Molunerfinn/node-github-profile-summary" target="_blank">GitHub</a>.
     </div>
@@ -29,7 +29,8 @@ export default {
   data () {
     return {
       limit: 0,
-      resetAt: ''
+      resetAt: '',
+      dataImage: 'https://user-images.githubusercontent.com/12621342/35959365-41f352b0-0ce0-11e8-8a5b-05ad054ea378.png'
     }
   },
   created () {
@@ -42,7 +43,6 @@ export default {
       this.resetAt = data.resetAt
     })
     socket.emit('getLimit')
-    socket.emit('join')
   },
   methods: {
     forceUpdate () {
@@ -71,7 +71,7 @@ export default {
   box-sizing: border-box;
 body,html
   margin: 0;
-  padding: 0;
+  padding-top: 0;
   background: #f6f8fa;
   min-height: 100%
   height: 100%
@@ -89,8 +89,12 @@ body,html
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  position relative
 .social-share
   padding-top 10px
+  position absolute
+  top 0px
+  width 100%
   .icon-wechat
     .wechat-qrcode
       top: 40px

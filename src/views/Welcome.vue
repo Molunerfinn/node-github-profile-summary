@@ -46,11 +46,6 @@ export default {
       }
     }
   },
-  watch: {
-    '$route' (to, from) {
-      console.log(to, from)
-    }
-  },
   beforeRouteEnter (to, from, next) {
     if (to.query.redirect === 'invalid') {
       next(vm => {
@@ -60,17 +55,13 @@ export default {
     } else {
       next()
     }
-  },
-  beforeRouteLeave (to, from, next) {
-    this.loading = false
-    next()
   }
 }
 </script>
 
 <style lang="stylus">
 .welcome
-  margin-top 20px
+  padding-top 60px
   text-align center
   &-title
     margin 12px 0
