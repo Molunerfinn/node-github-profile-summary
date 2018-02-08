@@ -2,7 +2,6 @@
   .profile(v-loading.fullscreen="loading")
     .container
       .row.user-info(v-if="userInfo.name !== undefined")
-        //- .col-sm-4.col-sm-offset-0.col-xs-6.col-xs-offset-3
         .col-xs-6.col-xs-offset-3.col-sm-2.col-sm-offset-5
           img.user-avatar(:src="userInfo.avatarUrl", alt="", cross-origin="anonymous")
         .col-xs-12.user-name
