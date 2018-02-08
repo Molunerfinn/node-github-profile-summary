@@ -94,7 +94,7 @@ export default {
   .invalid
     min-width 300px
     width 50%
-    margin 10px auto
+    margin 10px auto 80px
     text-align left
     background #fff
     padding 12px 16px
