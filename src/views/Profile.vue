@@ -215,13 +215,20 @@ export default {
 
       // user commits chart
       repos.sort((x, y) => {
-        return y.node.defaultBranchRef.target.history.totalCount - x.node.defaultBranchRef.target.history.totalCount
+        let xTotalCount
+        let yTotalCount
+        x.node.defaultBranchRef === null ? xTotalCount = 0 : xTotalCount = x.node.defaultBranchRef.target.history.totalCount
+
+        y.node.defaultBranchRef === null ? yTotalCount = 0 : yTotalCount = y.node.defaultBranchRef.target.history.totalCount
+
+        return yTotalCount - xTotalCount
       })
       const commitsTop10 = repos.slice(0, 10)
       const commitsArr = []
       const commitsLabels = []
       commitsTop10.forEach(item => {
-        const count = item.node.defaultBranchRef.target.history.totalCount
+        let count
+        item.node.defaultBranchRef === null ? count = 0 : count = item.node.defaultBranchRef.target.history.totalCount
         commitsArr.push(count)
         commitsLabels.push(`${item.node.name} - ${count}`)
       })
