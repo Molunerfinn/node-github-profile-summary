@@ -298,7 +298,7 @@ export default {
 <style lang="stylus">
   .profile
     padding-top 20px
-    padding-bottom 40px
+    padding-bottom 60px
     .user
       &-info
         text-align center

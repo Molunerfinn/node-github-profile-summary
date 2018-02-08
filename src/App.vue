@@ -10,6 +10,8 @@
       <div class="panel-button" v-if="$route.name === 'Profile'" @click="forceUpdate">Force Update</div>
       <div class="panel-button" v-if="$route.name === 'Profile'" @click="saveImage">Save As Img</div>
     </div>
+    <div class="social-share text-align" data-sites="wechat,weibo,qzone,facebook,twitter,google">
+    </div>
     <router-view/>
     <div class="footer">
       Node GitHub Profile Summary is built with <a href="https://github.com/vuejs/vue" target="_blank">Vue</a> \ <a href="https://github.com/koajs/koa" target="_blank">Koa</a> and <a href="https://github.com/chartjs/Chart.js" target="_blank">Chart.js</a>. Source is on <a href="https://github.com/Molunerfinn/node-github-profile-summary" target="_blank">GitHub</a>.
@@ -72,6 +74,13 @@ body,html
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+.social-share
+  margin-top 10px
+  .icon-wechat
+    .wechat-qrcode
+      top: 40px
+      &:after
+        border-width 0
 .text-align
   text-align: center
 .control-panel
