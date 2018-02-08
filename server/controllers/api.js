@@ -2,7 +2,6 @@ require('dotenv').config({silent: true})
 const jwt = require('jsonwebtoken')
 const utils = require('../utils')
 const axios = require('axios')
-const moment = require('moment')
 const Koa = require('koa')
 const app = new Koa()
 var server = require('http').createServer(app.callback())
@@ -30,9 +29,14 @@ const checkUserIsStarringRepo = async (ctx) => {
   let token = null
   const username = ctx.params.username
   const res = await utils.gqlSender(username, 'userInfo')
-  const success = res.user.starredRepositories.nodes.some(item => {
-    return item.name === 'PicGo' && item.owner.login === 'Molunerfinn'
-  })
+  let success
+  if (res.user !== null) {
+    success = res.user.starredRepositories.nodes.some(item => {
+      return item.name === 'node-github-profile-summary' && item.owner.login === 'Molunerfinn'
+    })
+  } else {
+    success = false
+  }
 
   if (success) {
     token = jwt.sign({
@@ -100,8 +104,8 @@ const rateLimitBroadcast = (rateLimitObj) => {
   rateLimit = rateLimitObj.remaining
   resetAt = rateLimitObj.resetAt
   return io.emit('limit', {
-    rateLimit: rateLimitObj.remaining,
-    resetAt: rateLimitObj.resetAt
+    rateLimit,
+    resetAt
   })
 }
 

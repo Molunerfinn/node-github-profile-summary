@@ -31,7 +31,8 @@ export default new Router({
                 next({
                   name: 'Welcome',
                   query: {
-                    redirect: 'invalid'
+                    redirect: 'invalid',
+                    username: to.params.username
                   }
                 })
               }
@@ -41,7 +42,8 @@ export default new Router({
               next({
                 name: 'Welcome',
                 query: {
-                  redirect: 'invalid'
+                  redirect: 'invalid',
+                  username: to.params.username
                 }
               })
             })

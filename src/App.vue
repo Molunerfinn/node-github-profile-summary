@@ -12,7 +12,9 @@
     </div>
     <div class="social-share text-align" data-sites="wechat,weibo,qzone,facebook,twitter,google">
     </div>
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
     <div class="footer">
       Node GitHub Profile Summary is built with <a href="https://github.com/vuejs/vue" target="_blank">Vue</a> \ <a href="https://github.com/koajs/koa" target="_blank">Koa</a> and <a href="https://github.com/chartjs/Chart.js" target="_blank">Chart.js</a>. Source is on <a href="https://github.com/Molunerfinn/node-github-profile-summary" target="_blank">GitHub</a>.
     </div>
@@ -21,7 +23,7 @@
 
 <script>
 import io from 'socket.io-client'
-import html2Canvas from 'html2Canvas'
+import html2Canvas from 'html2canvas'
 export default {
   name: 'App',
   data () {
@@ -69,13 +71,24 @@ body,html
   margin: 0;
   padding: 0;
   background: #f6f8fa;
+  min-height: 100%
+  height: 100%
+  overflow inherit!important
+.fade
+  &-enter,
+  &-leave,
+  &-leave-active
+    opacity 0
+  &-enter-active,
+  &-leave-active
+    transition opacity 200ms linear
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 .social-share
-  margin-top 10px
+  padding-top 10px
   .icon-wechat
     .wechat-qrcode
       top: 40px
