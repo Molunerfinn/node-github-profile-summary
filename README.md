@@ -1,5 +1,9 @@
 # node-github-profile-summary
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/12621342/35959365-41f352b0-0ce0-11e8-8a5b-05ad054ea378.png">
+</p>
+
 > The node version of github-profile-summary which is inspired by tipsy' [github-profile-summary](https://github.com/tipsy/github-profile-summary)
 
 Site: https://gh-profile-summary.now.sh
