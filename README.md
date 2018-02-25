@@ -52,7 +52,7 @@ JWT_SECRET=Any string
 KOA_PORT=8888
 ```
 
-> KOA_PORT can be any port you like which is avaliable.
+> KOA_PORT can be any port you like which is available.
 
 ### Run
 
