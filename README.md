@@ -49,8 +49,10 @@ The `.env` file looks like:
 ```env
 GH_TOKEN=Your token here
 JWT_SECRET=Any string
-KOA_PORT=8888 # or any port
+KOA_PORT=8888
 ```
+
+> KOA_PORT can be any port you like which is avaliable.
 
 ### Run
 
