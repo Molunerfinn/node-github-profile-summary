@@ -12,22 +12,26 @@
         .user-info__cards.pull-left
           .col-xs-12.col-sm-6.col-lg-3
             .user-info__card
-              | {{ userInfo.email || 'Null' }}
+              span.user-info__card-text(:class="{'small-text': userInfo.email && userInfo.email.length > 21}")
+                | {{ userInfo.email || 'Null' }}
               .user-info__card-status.pull-right
                 i.fa.fa-envelope(aria-hidden="true")
           .col-xs-12.col-sm-6.col-lg-3
             .user-info__card
-              | Joined at {{ userInfo.createdAt.slice(0, 10) }}
+              span.user-info__card-text
+                | Joined at {{ userInfo.createdAt.slice(0, 10) }}
               .user-info__card-status.pull-right
                 i.fa.fa-calendar(aria-hidden="true")
           .col-xs-12.col-sm-6.col-lg-3
             .user-info__card
-              | Owned public repos
+              span.user-info__card-text
+                | Owned public repos
               .user-info__card-status.pull-right
                 | {{ userRepos.totalCount }}
           .col-xs-12.col-sm-6.col-lg-3
             .user-info__card
-              | Contributed last year
+              span.user-info__card-text
+                | Contributed last year
               .user-info__card-status.pull-right
                 | {{ userCommits.total }}
       .row.chart-lists.user-contribution
@@ -321,6 +325,17 @@ export default {
           color #4c4948
           margin-bottom 15px
           font-size 18px
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: column wrap;
+          &-text
+            width calc(100% - 56px)
+            word-wrap: break-word
+            line-height: 20px
+            padding-left 4px
+            &.small-text
+              font-size 16px
           &-status
             text-align center
             width 56px

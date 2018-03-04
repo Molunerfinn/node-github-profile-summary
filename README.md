@@ -50,9 +50,12 @@ The `.env` file looks like:
 GH_TOKEN=Your token here
 JWT_SECRET=Any string
 KOA_PORT=8888
+HTTPS=false
 ```
 
 > KOA_PORT can be any port you like which is available.
+
+**If you set `HTTPS=true`, then the websocket will connect the 443 port, it's useful for https production.**
 
 ### Run
 

@@ -36,7 +36,10 @@ export default {
   created () {
     const host = window.location.hostname
     const protocol = window.location.protocol
-    const port = process.env.KOA_PORT || 443
+    let port = process.env.KOA_PORT
+    if (process.env.HTTPS) {
+      port = 443
+    }
     const socket = io(`${protocol}//${host}:${port}`)
     socket.on('limit', (data) => {
       this.limit = data.rateLimit
