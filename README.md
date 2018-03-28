@@ -14,7 +14,6 @@ Site: https://gh-profile-summary.teamsz.xyz
 - Chart.js
 - Koa
 - Github graphql api
-- now.sh
 
 ## Screenshot
 
@@ -26,19 +25,7 @@ Site: https://gh-profile-summary.teamsz.xyz
 
 ![](https://user-images.githubusercontent.com/12621342/35951773-d1c9cf50-0cb7-11e8-80b2-08ae7d876533.png)
 
-## Local run
-
-> You need to have node environment!
-
-### Install
-
-``` bash
-git clone https://github.com/Molunerfinn/node-github-profile-summary.git
-cd node-github-profile-summary
-npm install # or yarn
-```
-
-### Setup
+## Setup
 
 First generate a token at https://github.com/settings/tokens
 
@@ -57,6 +44,20 @@ HTTPS=false
 
 **If you set `HTTPS=true`, then the websocket will connect the 443 port, it's useful for https production.**
 
+## Local run
+
+### Node.js
+
+> You need to have node environment!
+
+### Install
+
+``` bash
+git clone https://github.com/Molunerfinn/node-github-profile-summary.git
+cd node-github-profile-summary
+npm install # or yarn
+```
+
 ### Run
 
 ```bash
@@ -64,12 +65,34 @@ npm run build
 npm start
 ```
 
+**Notice:** 8888 is the `KOA_PORT` in `.env` file
+
+And then open the link `http://localhost:8888`, Done.
+
+### Docker 
+
+> You need to have docker environment!
+
+### Build
+
+```bash
+docker build -t github-profile .
+```
+
+### Run
+
+```bash
+docker run -it --rm --name github-profile -p 8888:8888 github-profile
+```
+
+**Notice:** 8888 is the `KOA_PORT` in `.env` file
+
 And then open the link `http://localhost:8888`, Done.
 
 ## TODOS
 
 - More useful charts
-- Docker support
+- ~~Docker support~~
 - ...
 
 
