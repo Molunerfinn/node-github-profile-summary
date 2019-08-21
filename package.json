@@ -14,7 +14,7 @@
     "deploy": "now --public && now alias && now remove node-github-profile-summary --safe -f"
   },
   "dependencies": {
-    "@octokit/rest": "^14.0.5",
+    "@octokit/rest": "^16.28.7",
     "axios": "^0.17.1",
     "chart.js": "^2.7.1",
     "cheerio": "^1.0.0-rc.2",
