@@ -104,4 +104,4 @@ Done.
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018 Molunerfinn
+Copyright (c) 2019 Molunerfinn
