@@ -21,28 +21,28 @@ Site: https://gh-profile-summary.teamsz.xyz
 
 ![](https://user-images.githubusercontent.com/12621342/35951697-89e3338e-0cb7-11e8-9986-dc258f257b97.png)
 
-### Share system & Save your profile as Image
+### Share system & save your profile as an image
 
 ![](https://user-images.githubusercontent.com/12621342/35951773-d1c9cf50-0cb7-11e8-80b2-08ae7d876533.png)
 
 ## Setup
 
-First generate a token at https://github.com/settings/tokens
+First, generate a token at https://github.com/settings/tokens
 
 Then you need to create a `.env` file in the project folder.
 
-The `.env` file looks like:
+The `.env` file looks like this:
 
 ```env
-GH_TOKEN=Your token here
-JWT_SECRET=Any string
-KOA_PORT=8888
-HTTPS=false
+GH_TOKEN = Your token here
+JWT_SECRET = Any string
+KOA_PORT = 8888
+HTTPS = false
 ```
 
 > KOA_PORT can be any port you like which is available.
 
-**If you set `HTTPS=true`, then the websocket will connect the 443 port, it's useful for https production.**
+**If you set `HTTPS=true`, then the websocket will connect via port 443. This is useful for https production.**
 
 ## Local run
 
@@ -65,9 +65,9 @@ npm run build
 npm start
 ```
 
-**Notice:** 8888 is the `KOA_PORT` in `.env` file
+**Notice:** `8888` is the `KOA_PORT` in the `.env` file.
 
-And then open the link `http://localhost:8888` 
+Access the application via: http://localhost:8888
 
 Done.
 
@@ -87,9 +87,9 @@ docker build -t github-profile .
 docker run -it --rm --name github-profile -p 8888:8888 github-profile
 ```
 
-**Notice:** 8888 is the `KOA_PORT` in `.env` file
+**Notice:** `8888` is the `KOA_PORT` in the `.env` file.
 
-And then open the link `http://localhost:8888`
+Access the application via: http://localhost:8888
 
 Done.
 
