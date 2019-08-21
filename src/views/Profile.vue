@@ -333,7 +333,7 @@ export default {
             width calc(100% - 56px)
             word-wrap: break-word
             line-height: 20px
-            padding-left 4px
+            padding-right 4px
             &.small-text
               font-size 16px
           &-status

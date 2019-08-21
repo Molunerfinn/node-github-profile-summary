@@ -1,4 +1,5 @@
 {
+  "version": 1,
   "env": {
     "GH_TOKEN": "@gh-summary-token",
     "JWT_SECRET": "@jwt-secret"
