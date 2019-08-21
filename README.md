@@ -4,7 +4,7 @@
   <img src="https://user-images.githubusercontent.com/12621342/35959365-41f352b0-0ce0-11e8-8a5b-05ad054ea378.png">
 </p>
 
-> The node version of github-profile-summary which is inspired by tipsy' [github-profile-summary](https://github.com/tipsy/github-profile-summary)
+> The node version of github-profile-summary which is inspired by tipsy's [github-profile-summary](https://github.com/tipsy/github-profile-summary)
 
 Site: https://gh-profile-summary.teamsz.xyz
 
@@ -13,7 +13,7 @@ Site: https://gh-profile-summary.teamsz.xyz
 - Vue
 - Chart.js
 - Koa
-- Github graphql api
+- GitHub GraphQL API
 
 ## Screenshot
 
@@ -29,7 +29,7 @@ Site: https://gh-profile-summary.teamsz.xyz
 
 First generate a token at https://github.com/settings/tokens
 
-Then You need to create a `.env` file in the project folder.
+Then you need to create a `.env` file in the project folder.
 
 The `.env` file looks like:
 
@@ -48,7 +48,7 @@ HTTPS=false
 
 ### Node.js
 
-> You need to have node environment!
+> You need to have a node environment!
 
 ### Install
 
@@ -67,11 +67,13 @@ npm start
 
 **Notice:** 8888 is the `KOA_PORT` in `.env` file
 
-And then open the link `http://localhost:8888`, Done.
+And then open the link `http://localhost:8888` 
+
+Done.
 
 ### Docker 
 
-> You need to have docker environment!
+> You need to have a docker environment!
 
 ### Build
 
@@ -87,7 +89,9 @@ docker run -it --rm --name github-profile -p 8888:8888 github-profile
 
 **Notice:** 8888 is the `KOA_PORT` in `.env` file
 
-And then open the link `http://localhost:8888`, Done.
+And then open the link `http://localhost:8888`
+
+Done.
 
 ## TODOS
 
@@ -101,5 +105,3 @@ And then open the link `http://localhost:8888`, Done.
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2018 Molunerfinn
-
-
