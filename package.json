@@ -30,7 +30,7 @@
     "koa-static": "^4.0.2",
     "koa2-history-api-fallback": "^0.0.5",
     "melody.css": "^1.0.2",
-    "moment": "^2.20.1",
+    "moment": "^2.24.0",
     "pm2": "^2.9.3",
     "pug": "^2.0.0-rc.4",
     "pug-loader": "^2.3.0",
