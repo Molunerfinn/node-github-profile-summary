@@ -6,7 +6,7 @@
 
 > The node version of github-profile-summary which is inspired by tipsy' [github-profile-summary](https://github.com/tipsy/github-profile-summary)
 
-Site: https://gh-profile-summary.teamsz.xyz
+Site: https://gh-profile-summary.now.sh/
 
 ## Major skills or tools:
 
